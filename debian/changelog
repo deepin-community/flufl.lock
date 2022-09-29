@@ -1,0 +1,193 @@
+flufl.lock (5.0.1-1) unstable; urgency=medium
+
+  [ Pierre-Elliott Bécue ]
+  * d/control:
+    - Add a Multi-Arch header on python-flufl.lock-doc.
+    - Remove Barry Warsaw from the Uploaders as he retired. Thanks Barry for
+      your contributions !
+    - Use my debian's address instead of my crans' one
+    - Bump debhelper-compat level to 13
+    - Update build-dependencies
+    - Bump Standards-Version to 4.5.0
+    - Set Rules-Requires-Root to no
+  * New upstream release 5.0.1
+  * d/rules:
+    - update the override for installchangelogs
+    - Remove useless files shipped when installing
+  * Update upstream's gpg public key to have a minimal one
+
+  [ Ondřej Nový ]
+  * d/control: Set Vcs-* to salsa.debian.org
+  * d/copyright: Use https protocol in Format field
+  * d/control: Remove ancient X-Python3-Version field
+  * Convert git repository from git-dpm to gbp layout
+  * Use debhelper-compat instead of debian/compat.
+
+  [ Debian Janitor ]
+  * Use secure URI in Homepage field.
+
+ -- Pierre-Elliott Bécue <peb@debian.org>  Wed, 09 Sep 2020 13:30:43 +0200
+
+flufl.lock (3.2-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * VCS migration: SVN → Git.
+    On 2015-10-09, DPMT finished its transition from SVN to Git. All
+    packages' VCS have been updated accordingly.
+  * Fixed homepage (https)
+  * Fixed VCS URL (https)
+
+  [ Barry Warsaw ]
+  * d/control:
+    - Update the Homepage.
+    - Bump Standards-Version with no other changes necessary.
+    - Put DPMT in Maintainers and myself in Uploaders.
+
+  [ Pierre-Elliott Bécue ]
+  * New upstream release:
+    - Drop Python 2.7, add Python 3.6.
+    - Added Windows support.
+    - Switch to the Apache License Version 2.0.
+    - Use flufl.testing for nose2 and flake8 plugins.
+    - Allow the claim file separator to be configurable, to support file
+      systems where the vertical bar is problematic.  Defaults to ``^`` on
+      Windows and ``|`` everywhere else (unchanged).
+    - Expose the ``SEP`` as a public attribute.
+    - Expose the host name used in the ``.details`` property, as a property.
+  * d/compat:
+    - Bump to 10.
+  * d/control:
+    - Add myself to Uploaders: with barry's approval.
+    - Bump Standards-Version.
+    - Bump debhelper Build-Depends to version 10.
+    - Drops python2 package.
+    - Removes a Breaks/Conflicts redundancy.
+    - Build-Depends on python3-public.
+  * d/copyright:
+    - Upstream changed copyright from LGPL-3 to Apache-2.0
+  * d/rules:
+    - Removes python2 build.
+    - Moves the doc in usr/share/doc/python3-flufl.lock without the -doc
+      suffix.
+  * d/tests:
+    - Removes all python2 references.
+  * d/python-flufl.lock.links -> d/python-flufl.lock-doc.links
+    - The pointer to rst should be with the doc, if not, it points to a
+      nonexisting directory.
+  * Adds d/python3-flufl.lock-doc.dirs:
+    - Provides the usr/share/doc/python3-flufl.lock directory
+  * Adds d/python3-flufl.lock-doc.doc-base:
+    - Provides doc-base intel that were missing.
+  * d/watch:
+    - Bump version to 4
+    - Use https URL instead of http
+
+ -- Pierre-Elliott Bécue <becue@crans.org>  Mon, 27 Nov 2017 23:22:05 +0100
+
+flufl.lock (2.4.1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * d/rules:
+    - Revert the previous change removing the bogus egg-info.
+    - Remove unnecessary override of dh_auto_install.
+  * d/tests:
+    - Use the simpler Test-Command syntax.
+    - Removed smoketest-{2,3}, unittest-{2,3} files.
+
+ -- Barry Warsaw <barry@debian.org>  Wed, 04 Nov 2015 15:33:16 -0500
+
+flufl.lock (2.4-1) unstable; urgency=medium
+
+  * New upstream release.
+  * d/python{,3}-flufl.lock.pyremove: Removed.
+  * d/rules: Be sure to remove any leftover python3.X/dist-packages.
+
+ -- Barry Warsaw <barry@debian.org>  Sat, 10 Oct 2015 17:46:45 -0400
+
+flufl.lock (2.3.1-2) unstable; urgency=medium
+
+  * d/control:
+    - Bump Standards-Version with no other changes necessary.
+    - Bump debhelper Build-Depends to version 9.
+    - Update maintainer's email address.
+  * d/compat: Bump to version 9.
+  * d/copyright: Convert to DEP-5 format.
+  * d/watch: Use the pypi.debian.net redirector.
+  * d/upstream/signing-key.asc: Add upstream's pubkey so that the
+    pgpsigurlmangle option in d/watch will succeed.
+  * d/tests/*: Add DEP-8 tests.
+
+ -- Barry Warsaw <barry@debian.org>  Thu, 04 Jun 2015 16:53:38 -0400
+
+flufl.lock (2.3.1-1) unstable; urgency=low
+
+  * Team upload.
+
+  [ Jakub Wilk ]
+  * Use canonical URIs for Vcs-* fields.
+  * Remove DM-Upload-Allowed; it's no longer used by the archive
+    software.
+
+  [ Barry Warsaw ]
+  * New upstream release.
+  * d/control:
+    - Added Build-Depends on dh-python.
+    - Bumped Standards-Version to 3.9.5 with no other changes necessary.
+    - wrap-and-sort
+  * d/rules: Switch to --buildsystem=pybuild and simplify.
+  * d/*.install: Obsolete; removed.
+  * d/patches/setup.patch: Obsolete; removed.
+
+ -- Barry Warsaw <barry@debian.org>  Fri, 26 Sep 2014 13:07:21 -0400
+
+flufl.lock (2.2.1-2) unstable; urgency=low
+
+  * debian/control: Fix Depends line so that python3-flufl.lock
+    depends on ${python3:Depends}.  (Closes: #674222)
+
+ -- Barry Warsaw <barry@python.org>  Wed, 23 May 2012 19:14:41 -0400
+
+flufl.lock (2.2.1-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Barry Warsaw <barry@python.org>  Wed, 23 May 2012 15:18:24 -0400
+
+flufl.lock (2.2-2) unstable; urgency=low
+
+  * Team upload
+
+  [ Barry Warsaw ]
+  * debian/rules:
+    - Build and install Python 3 versions via % expansion targets instead
+      of for loops in override targets.
+    - Remove test target debugging output when DEB_BUILD_OPTIONS=nocheck.
+    - Remove questionable workaround for bug 618367.
+    - Better override_dh_auto_clean rule so that the package can be built
+      twice in a row.
+  * debian/control:
+    - Rename flufl.lock-docs to the more usual flufl.lock-doc without
+      adding transitional packages since it has never been in a stable
+      release.
+    - Bump standards-version to 3.9.3 without further changes.
+
+  [ Scott Kitterman ]
+  * Add DM-Upload-Allowed
+
+ -- Scott Kitterman <scott@kitterman.com>  Tue, 27 Mar 2012 14:13:35 -0400
+
+flufl.lock (2.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * Build for Python 3, and split out common documentation package.
+  * compat level 8
+  * Disable test suite for now, as a workaround for multiprocessing not
+    working fully in a pbuilder environment.
+
+ -- Barry Warsaw <barry@python.org>  Fri, 20 Jan 2012 09:20:10 -0500
+
+flufl.lock (2.1.1-1) unstable; urgency=low
+
+  * Initial release (closes: #638859)
+
+ -- Barry Warsaw <barry@python.org>  Mon, 22 Aug 2011 15:10:33 -0400

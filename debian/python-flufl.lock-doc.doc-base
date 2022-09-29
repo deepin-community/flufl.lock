@@ -1,0 +1,9 @@
+Document: python3-flufl.lock
+Title: Python3 flufl.lock Manual
+Author: Barry Warsaw <barry@python.org>
+Abstract: This manual describes how to use Python3 flufl.lock library.
+Section: Programming/Python
+
+Format: HTML
+Index: /usr/share/doc/python3-flufl.lock/html/index.html
+Files: /usr/share/doc/python3-flufl.lock/html/*.html

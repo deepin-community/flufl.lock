@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+
+export PYBUILD_NAME=flufl.lock
+export PYBUILD_AFTER_INSTALL=rm -rf '{destdir}/{install_dir}/docs' \
+	{destdir}/{install_dir}/.coverage*
+
+%:
+	dh $@ --with python3,sphinxdoc --buildsystem=pybuild
+
+override_dh_installchangelogs:
+	dh_installchangelogs -k docs/NEWS.rst
+
+override_dh_auto_build:
+	dh_auto_build
+	python3 setup.py build_sphinx
